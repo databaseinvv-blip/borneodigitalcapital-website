@@ -39,12 +39,8 @@
          background:rgba(6,10,16,.72);backdrop-filter:blur(14px);
          border-bottom:1px solid var(--line)}
   .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-  .brand-mark{height:42px;width:42px;border-radius:10px;flex:none;
-    border:1px solid rgba(201,162,75,.3);
-    background:radial-gradient(120% 120% at 30% 20%,#14324a,#060d16);
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;
-    color:#c9a24b;letter-spacing:.04em}
+  .brand-logo{height:42px;width:42px;flex:none;object-fit:cover;
+    border-radius:10px;border:1px solid rgba(201,162,75,.3)}
   .brand-name{font-family:'Space Grotesk',sans-serif;font-weight:600;
               font-size:14px;color:var(--ink)}
   .back{font-family:'IBM Plex Mono',monospace;font-size:12px;
@@ -116,7 +112,7 @@
 
 <header>
   <a class="brand" href="index.html">
-    <span class="brand-mark">BDC</span>
+    <img class="brand-logo" src="images/BDC-logo.png" alt="Borneo Digital Capital">
     <span class="brand-name">Borneo Digital Capital</span>
   </a>
   <a class="back" href="index.html">&larr; Back to home</a>
