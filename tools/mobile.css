@@ -1,0 +1,102 @@
+/*BDC-MOBILE-START*/
+/* The page is built almost entirely from inline styles, so every override here
+   needs !important to win. Note that browsers re-serialise the style attribute
+   ("repeat(4,1fr)" -> "repeat(4, 1fr)"), which is why value-matching selectors
+   are listed in both the authored and the normalised form. */
+#bdgNavBtn{display:none}
+@media (max-width:900px){
+  html,body{overflow-x:hidden!important;-webkit-text-size-adjust:100%}
+
+  /* ---- header / mobile nav ---- */
+  header{padding:10px 16px!important;gap:10px!important}
+  header img{height:38px!important;width:38px!important}
+  header>a span[style*="font-size: 14px"],
+  header>a span[style*="font-size:14px"]{font-size:13px!important}
+  header>a span[style*="letter-spacing: 0.24em"],
+  header>a span[style*="letter-spacing:.24em"]{font-size:8.5px!important;letter-spacing:.18em!important}
+
+  #bdgNavBtn{display:inline-flex!important;flex-direction:column;justify-content:center;gap:5px;
+    flex:none;width:42px;height:38px;padding:0 9px;border-radius:9px;cursor:pointer;
+    background:rgba(201,162,75,.10);border:1px solid rgba(201,162,75,.32)}
+  #bdgNavBtn span{display:block;height:1.5px;width:100%;background:#e6c976;border-radius:2px;
+    transition:transform .25s ease,opacity .2s ease}
+  #bdgNavBtn[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  #bdgNavBtn[aria-expanded="true"] span:nth-child(2){opacity:0}
+  #bdgNavBtn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+  header nav{display:none!important}
+  header nav.bdg-open{display:flex!important;position:absolute!important;top:100%!important;
+    left:0!important;right:0!important;flex-direction:column!important;align-items:stretch!important;
+    gap:0!important;padding:6px 16px 18px!important;z-index:60;
+    max-height:calc(100vh - 60px);overflow-y:auto;
+    background:rgba(7,13,21,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(201,162,75,.18);box-shadow:0 18px 44px rgba(0,0,0,.55)}
+  header nav.bdg-open a{font-size:15.5px!important;padding:14px 2px!important;
+    border-bottom:1px solid rgba(255,255,255,.06)}
+  header nav.bdg-open a:last-child{margin-top:14px;border-bottom:none;justify-content:center;
+    padding:14px 18px!important;font-size:15px!important}
+
+  /* ---- global horizontal breathing room ---- */
+  section,article,footer>div{padding-left:18px!important;padding-right:18px!important}
+  #top{padding-top:52px!important;padding-bottom:56px!important}
+
+  /* ---- unpin the scroll-scrub scenes ---- */
+  [data-scene]{height:auto!important}
+  [data-pin]{position:static!important;height:auto!important;min-height:0!important;
+    display:block!important;overflow:visible!important;transform:none!important}
+  [data-pin]>*{transform:none!important;opacity:1!important;filter:none!important}
+  [data-scene] section{border-radius:18px!important;padding-top:34px!important;padding-bottom:34px!important;
+    margin-left:0!important;margin-right:0!important;box-shadow:0 14px 38px rgba(0,0,0,.45)!important}
+
+  /* ---- collapse multi-column grids; keep the stat strips 2-up ---- */
+  [style*="grid-template-columns"]{grid-template-columns:1fr!important;gap:14px!important}
+  /* minmax(0,…) so a long unbreakable string can't blow a column out */
+  [style*="repeat(4, 1fr)"],[style*="repeat(4,1fr)"],
+  [style*="repeat(2, 1fr)"],[style*="repeat(2,1fr)"]{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important}
+
+  /* ---- typography / spacing trims ---- */
+  h1{font-size:clamp(30px,8.4vw,42px)!important;line-height:1.06!important;max-width:none!important}
+  h2{font-size:clamp(25px,6.6vw,34px)!important;line-height:1.12!important}
+  h3{font-size:19px!important}
+  p{font-size:15.5px!important;line-height:1.62!important;max-width:none!important}
+  [style*="font-size: 19px"],[style*="font-size:19px"]{font-size:16px!important}
+  [style*="font-size: 17px"],[style*="font-size:17px"]{font-size:15.5px!important}
+
+  /* hero "fund live" pill: pull it out of the absolute corner into the flow */
+  #top>[style*="top: 26px"],#top>[style*="top:26px"]{position:relative!important;
+    top:auto!important;right:auto!important;margin:0 0 20px!important;width:max-content;max-width:100%}
+
+  /* ---- marquee ---- */
+  [style*="bdgmarquee"]{font-size:15px!important}
+  [style*="bdgmarquee"]>span{padding-left:13px!important;padding-right:13px!important}
+
+  /* ---- buttons stretch, stay tappable ---- */
+  a[data-magnetic]{transform:none!important}
+  #top a[data-magnetic]{width:100%;justify-content:center;padding:15px 20px!important;font-size:15px!important}
+  header a[data-magnetic]{width:auto}
+
+  /* small mono links inside cards ("Apply for this role") are ~15px tall as
+     plain inline text — give them a real tap target */
+  section a[style*="font-size: 12px"],section a[style*="font-size:12px"]{
+    display:inline-block;padding:8px 0!important;font-size:13px!important}
+
+  /* ---- footer ---- */
+  footer [style*="gap: 56px"],footer [style*="gap:56px"]{gap:26px!important}
+  footer{margin-top:20px!important}
+
+  /* ---- ambient layers: drop the two big blurred blobs on phones ---- */
+  #bdgnet{opacity:.55}
+  [style*="width: 520px"],[style*="width:520px"],
+  [style*="width: 580px"],[style*="width:580px"]{display:none!important}
+}
+
+@media (max-width:520px){
+  /* two prose cards side by side is too cramped on a phone; short 4-up stat
+     strips still read fine at 2-up, so those keep their columns */
+  [style*="repeat(2, 1fr)"],[style*="repeat(2,1fr)"]{grid-template-columns:1fr!important}
+  header>a span[style*="letter-spacing: 0.24em"],
+  header>a span[style*="letter-spacing:.24em"]{display:none!important}
+  section,article,footer>div{padding-left:15px!important;padding-right:15px!important}
+}
+/*BDC-MOBILE-END*/
