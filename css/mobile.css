@@ -45,6 +45,13 @@
   [data-pin]{position:static!important;height:auto!important;min-height:0!important;
     display:block!important;overflow:visible!important;transform:none!important}
   [data-pin]>*{transform:none!important;opacity:1!important;filter:none!important}
+  /* If the viewport crosses 900px after load (tablet rotation, window resize),
+     the desktop scrub may already have left scene contents at opacity 0. It
+     only ever touches these descendants, so force them all back to visible -
+     nothing may end up unreadable on a phone. */
+  [data-scene] h1,[data-scene] h2,[data-scene] h3,[data-scene] p,
+  [data-scene] [data-reveal],[data-scene] [data-decode]{
+    opacity:1!important;transform:none!important;filter:none!important}
   [data-scene] section{border-radius:18px!important;padding-top:34px!important;padding-bottom:34px!important;
     margin-left:0!important;margin-right:0!important;box-shadow:0 14px 38px rgba(0,0,0,.45)!important}
 

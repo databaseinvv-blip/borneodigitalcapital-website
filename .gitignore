@@ -1,0 +1,8 @@
+# Local full-resolution backups of the sector photos. The web-sized versions
+# live in images/; these are kept only as a safety net and should not be
+# committed or uploaded.
+images/originals/
+
+# Intermediate output of the un-bundling build (see tools/README.md)
+tools/snapshots/
+_capture_*.html
