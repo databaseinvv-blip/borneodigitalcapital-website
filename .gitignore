@@ -6,3 +6,10 @@ images/originals/
 # Intermediate output of the un-bundling build (see tools/README.md)
 tools/snapshots/
 _capture_*.html
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
