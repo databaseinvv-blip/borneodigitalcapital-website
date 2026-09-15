@@ -61,6 +61,11 @@
   [style*="repeat(4, 1fr)"],[style*="repeat(4,1fr)"],
   [style*="repeat(2, 1fr)"],[style*="repeat(2,1fr)"]{
     grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  /* the General Partners grid is 3-up on desktop but holds bio cards, same as
+     the 2-up Senior Advisors grid below it - keep both 2-up on tablets so the
+     team section doesn't switch rhythm halfway down */
+  [style*="repeat(3, 1fr); gap: 18px; margin-bottom: 40px"]{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important}
 
   /* ---- typography / spacing trims ---- */
   h1{font-size:clamp(30px,8.4vw,42px)!important;line-height:1.06!important;max-width:none!important}
@@ -101,7 +106,8 @@
 @media (max-width:520px){
   /* two prose cards side by side is too cramped on a phone; short 4-up stat
      strips still read fine at 2-up, so those keep their columns */
-  [style*="repeat(2, 1fr)"],[style*="repeat(2,1fr)"]{grid-template-columns:1fr!important}
+  [style*="repeat(2, 1fr)"],[style*="repeat(2,1fr)"],
+  [style*="repeat(3, 1fr); gap: 18px; margin-bottom: 40px"]{grid-template-columns:1fr!important}
   header>a span[style*="letter-spacing: 0.24em"],
   header>a span[style*="letter-spacing:.24em"]{display:none!important}
   section,article,footer>div{padding-left:15px!important;padding-right:15px!important}
